@@ -19,7 +19,7 @@ A parody of CRM with a few features implemented.
 > - CSS
 > - Tailwind
 > - React
-    - Vite
-    - React router dom v6
-    - React hook form
-    - Redux Toolkit
+    + Vite
+    + React router dom v6
+    + React hook form
+    + Redux Toolkit
