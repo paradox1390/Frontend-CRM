@@ -39,8 +39,6 @@ export const Registration = () => {
   const dispatch = useDispatch();
   const userList = useUserListSelector();
 
-  console.log(userList);
-
   const onSubmit = (data) => {
     const [userData] = userList.filter(
       (user) => user.phone === data.phone || user.email === data.email,
