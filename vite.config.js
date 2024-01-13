@@ -19,9 +19,6 @@ export default defineConfig({
       "@utils": `${path.resolve(__dirname, "./src/utils/")}`,
     },
   },
-  build: {
-    outDir: "public",
-  },
   css: {
     modules: {
       localsConvention: "camelCase",
