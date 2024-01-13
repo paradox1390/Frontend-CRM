@@ -1,0 +1,12 @@
+@font-face {
+  font-family: Ralsteda;
+  font-weight: 400;
+  src: url("./assets/fonts/ralsteda/RalstedaRegular.otf");
+}
+
+@font-face {
+  font-family: Ralsteda;
+  font-weight: 700;
+  font-style: italic;
+  src: url("./assets/fonts/ralsteda/RalstedaBolditalic.otf");
+}

@@ -1,0 +1,18 @@
+.formTab {
+  @apply w-full h-36 
+        flex flex-col items-center justify-center gap-3 
+        rounded-sm
+        bg-gradient-to-br from-white to-white;
+}
+
+.active > .formTab {
+  @apply bg-gradient-to-br from-main-blue to-main-turquoise;
+}
+
+.active > .formTab > span:nth-child(1) {
+  @apply text-white;
+}
+
+.active > .formTab > span:nth-child(2) {
+  @apply text-white;
+}

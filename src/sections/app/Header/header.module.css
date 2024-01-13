@@ -1,0 +1,7 @@
+.active {
+  @apply bg-gradient-to-t from-main-blue-opacity to-white to-50% border-b-4 border-main-blue;
+}
+
+.active > span:first-child {
+  @apply text-main-blue;
+}

@@ -1,0 +1,12 @@
+.input {
+  @apply bg-aliceBlue w-full p-2 pl-10 rounded relative;
+}
+
+.errors {
+  @apply absolute bottom-[-20px] left-[5px] text-sm text-red-500;
+}
+
+.confirm {
+  @apply relative mb-7
+         after:content-['\e912'] after:absolute after:top-0.5 after:left-2 after:text-gray-500 after:font-icomoon after:text-2xl;
+}

@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("./font.css");
+@import url("./icomoon.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input__wrap {
+  @apply relative mb-7
+            after:absolute after:top-0.5 after:left-2 after:text-gray-500 after:font-icomoon after:text-2xl;
+}
+
+.email {
+  @apply after:content-['\e91b'];
+}
+
+.pass {
+  @apply after:content-['\e912'];
+}
+
+.input {
+  @apply bg-aliceBlue w-full p-2 pl-10 rounded relative;
+}
+
+.errors {
+  @apply absolute bottom-[-20px] left-[5px] text-sm text-red-500;
+}
+
+.errors__form {
+  @apply absolute bottom-[52px] left-[5px] text-sm text-red-500;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
