@@ -87,6 +87,7 @@ export const Form = () => {
     reset();
   };
 
+  console.log("rerender");
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex gap-5 mb-3">
