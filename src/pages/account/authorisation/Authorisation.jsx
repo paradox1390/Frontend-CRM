@@ -4,8 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
 
-import { useUserListSelector } from "@/store/slice/userListSlice";
-import { login } from "@/store/slice/userSlice";
+import { loginUser } from "@/store/slice/userSlice";
 
 import { Button } from "@/components/Button";
 
@@ -30,17 +29,14 @@ export const Authorisation = () => {
   });
 
   const dispatch = useDispatch();
-  const userList = useUserListSelector();
   const navigate = useNavigate();
-  const onSubmit = (data) => {
-    const [userData] = userList.filter(
-      (user) => user.password == data.password && user.email === data.email,
-    );
-    if (!userData) {
-      setError("root.invalidUser", { type: "Неправильний пароль або email" });
+  const onSubmit = async (data) => {
+    const userData = JSON.stringify(data);
+    const user = await dispatch(loginUser(userData));
+    if (user?.error) {
+      setError("root.invalidUser", { type: `${user?.error.message}` });
       return;
     } else {
-      dispatch(login(userData));
       navigate("/app/incoming");
     }
   };

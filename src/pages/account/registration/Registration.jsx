@@ -5,8 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
 
-import { useUserListSelector, addUser } from "@/store/slice/userListSlice";
-import { login } from "@/store/slice/userSlice";
+import { registrationUser } from "@/store/slice/userSlice";
 
 import { Button } from "@components/Button";
 
@@ -14,7 +13,7 @@ import css from "./registration.module.css";
 
 const schema = yup
   .object({
-    fullName: yup.string().required("ФІО є обов'язковим полем"),
+    name: yup.string().required("ФІО є обов'язковим полем"),
     phone: yup
       .string()
       .length(12, "Невірний формат номера")
@@ -37,22 +36,17 @@ export const Registration = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userList = useUserListSelector();
 
-  const onSubmit = (data) => {
-    const [userData] = userList.filter(
-      (user) => user.phone === data.phone || user.email === data.email,
-    );
+  const onSubmit = async (data) => {
+    const user = await dispatch(registrationUser(JSON.stringify(data)));
 
-    if (!userData) {
-      dispatch(addUser(data));
-      dispatch(login(data));
+    if (!user.payload) {
+      setError("root.userExist", {
+        type: `${user.error.message}`,
+      });
+    } else {
       navigate("/account/confirm");
-      return;
     }
-    setError("root.userExist", {
-      type: "Користувач з таким email або номером телефону вже існує",
-    });
   };
 
   return (
@@ -72,7 +66,7 @@ export const Registration = () => {
           <input
             id="fullName"
             type="text"
-            {...register("fullName")}
+            {...register("name")}
             className={css.input}
             placeholder="Прізвище, Ім'я"
           />

@@ -14,8 +14,11 @@ import { useUserSelector } from "@/store/slice/userSlice";
 
 const ProtectedRoute = () => {
   const user = useUserSelector();
-  if (!user) {
+  if (!user.data) {
     return <Navigate to="/account/authorisation" replace />;
+  }
+  if (!user.data.confirmed) {
+    return <Navigate to="/account/confirm  " replace />;
   }
   return <Outlet />;
 };
