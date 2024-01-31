@@ -1,4 +1,7 @@
+import { useState, useEffect } from "react";
 import { Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import { Home } from "@pages/home";
 import { Account } from "@pages/account";
 import { Registration } from "@pages/account/registration";
@@ -10,10 +13,31 @@ import { Incoming } from "@pages/app/incoming";
 import { Orders } from "@pages/app/orders";
 import { Page404 } from "@pages/404/";
 
-import { useUserSelector } from "@/store/slice/userSlice";
+import { useUserSelector, loadUser } from "@/store/slice/userSlice";
+
+import { getUser } from "@/api";
 
 const ProtectedRoute = () => {
+  let token = localStorage.getItem("token");
+  const [isLoading, setIsLoading] = useState(Boolean(token));
+  const dispatch = useDispatch();
+
   const user = useUserSelector();
+  useEffect(() => {
+    const userLoading = async () => {
+      if (isLoading) {
+        const user = await getUser();
+        dispatch(loadUser(user));
+        setIsLoading(false);
+      }
+    };
+    userLoading();
+  }, []);
+
+  if (isLoading) {
+    return <span class="loader"></span>;
+  }
+
   if (!user.data) {
     return <Navigate to="/account/authorisation" replace />;
   }

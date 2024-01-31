@@ -3,6 +3,23 @@ import { useSelector } from "react-redux";
 
 import { register, login, sendConfirmCode } from "@/api";
 
+// const makeInitialState = async () => {
+//   if (localStorage.getItem("token")) {
+//     const user = await getUser();
+//     if (user) {
+//       return {
+//         loading: false,
+//         data: user,
+//         error: null,
+//       };
+//     }
+//   }
+//   return {
+//     loading: false,
+//     data: null,
+//     error: null,
+//   };
+// };
 
 const initialState = {
   loading: false,
@@ -23,6 +40,9 @@ export const userSlice = createSlice({
     logout: (state) => {
       localStorage.removeItem("token");
       state.data = null;
+    },
+    loadUser: (state, action) => {
+      state.data = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -70,5 +90,5 @@ export const userSlice = createSlice({
 });
 
 export const userReducer = userSlice.reducer;
-export const { logout } = userSlice.actions;
+export const { logout, loadUser } = userSlice.actions;
 export const useUserSelector = () => useSelector((state) => state.user);

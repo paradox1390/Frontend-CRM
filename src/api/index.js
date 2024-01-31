@@ -58,3 +58,19 @@ export const login = async (userData) => {
   localStorage.setItem("token", data.token);
   return data;
 };
+
+export const getUser = async () => {
+  const token = localStorage.getItem("token");
+  const res = await fetch(`${BASE_URL}get-user`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const data = await res.json();
+  if (res.status !== 200) {
+    throw new Error(data.message);
+  } else {
+    return data;
+  }
+};
