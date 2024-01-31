@@ -23,6 +23,7 @@ const ProtectedRoute = () => {
   const dispatch = useDispatch();
 
   const user = useUserSelector();
+  console.log("user", user);
   useEffect(() => {
     const userLoading = async () => {
       if (isLoading) {
