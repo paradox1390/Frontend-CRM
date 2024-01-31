@@ -35,7 +35,7 @@ const ProtectedRoute = () => {
   }, []);
 
   if (isLoading) {
-    return <span class="loader"></span>;
+    return <span className="loader"></span>;
   }
 
   if (!user.data) {

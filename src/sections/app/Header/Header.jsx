@@ -47,7 +47,7 @@ export const Header = () => {
           </nav>
           <div className="flex items-center">
             <span className="font-bold text-indigo-950 text-base">
-              {user.fullName}
+              {user.name}
             </span>
             <button className="p-5" onClick={() => alert("in development")}>
               <span className="icon-cached text-gray-500 text-3xl"></span>

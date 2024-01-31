@@ -91,4 +91,4 @@ export const userSlice = createSlice({
 
 export const userReducer = userSlice.reducer;
 export const { logout, loadUser } = userSlice.actions;
-export const useUserSelector = () => useSelector((state) => state.user);
+export const useUserSelector = () => useSelector((state) => state.user.data);
