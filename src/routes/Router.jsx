@@ -39,7 +39,7 @@ const ProtectedRoute = () => {
     return <span className="loader"></span>;
   }
 
-  if (user !== null) {
+  if (user === null) {
     return <Navigate to="/account/authorisation" replace />;
   }
   if (!user.confirmed) {
