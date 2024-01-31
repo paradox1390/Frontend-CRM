@@ -1,7 +1,7 @@
 # A parody of CRM
 
 A parody of CRM with a few features implemented.
-A confirmation code with a password is sent to the console
+A confirmation code with a password is sent to the email
 
 [Demo](https://react-project-alpha-seven.vercel.app/)
 

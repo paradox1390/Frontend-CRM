@@ -40,7 +40,6 @@ export const register = async (userData) => {
   if (res.status !== 200) {
     throw new Error(`${data.message}`);
   }
-  console.log(data);
   localStorage.setItem("token", data.token);
   return data;
 };

@@ -10,7 +10,6 @@ import css from "./header.module.css";
 export const Header = () => {
   const user = useUserSelector();
 
-  console.log(user);
   const dispatch = useDispatch();
 
   const onLogout = () => {

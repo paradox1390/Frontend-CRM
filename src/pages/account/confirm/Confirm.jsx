@@ -46,7 +46,6 @@ export const Confirm = () => {
         }),
       );
     } else {
-      console.log(user);
       navigate("/app/incoming");
     }
   };
