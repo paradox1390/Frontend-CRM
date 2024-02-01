@@ -3,12 +3,12 @@
 A parody of CRM with a few features implemented.
 A confirmation code with a password is sent to the email
 
-[Demo](https://react-project-alpha-seven.vercel.app/)
+[Demo](https://frontend-crm-two.vercel.app/)
 
 ### Implemented
 
-> - parody of registration.
-> - authorisation parody.
+> - Registration.
+> - Authentication.
 > - form add order.
 > - displays table of orders.
 
