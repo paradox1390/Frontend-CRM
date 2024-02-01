@@ -4,6 +4,7 @@ A parody of CRM with a few features implemented.
 A confirmation code with a password is sent to the email
 
 [Demo](https://frontend-crm-two.vercel.app/)
+[To API repository](https://github.com/paradox1390/backend-CRM)
 
 ### Implemented
 
